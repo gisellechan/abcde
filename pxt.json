@@ -1,7 +1,7 @@
 {
-    "name": "pxt-multiple-sensors-house",
-    "version": "1.2.4",
-    "description": "This is the extension for SMARTHON House Kit in PXT",
+    "name": "pxt-camera",
+    "version": "1.0.0",
+    "description": "This is the extension for SMARTHON Camera Kit in PXT",
     "license": "MIT",
     "dependencies": {
         "core": "*"		

@@ -40,14 +40,17 @@ namespace Camera {
     }
     // -------------- 4. Return Detection Value ----------------
     //% blockId=Camera_dataResponse_faces
-    //% block="Get Human Faces (detected or not)"
+    //% block="Human Face Is Detected"
     //% weight=70
     //% blockGap=7
-    export function DataResponse_faces(): string {
+    export function DataResponse_faces(): boolean {
         let temp = ""
         temp = serial.readLine()
         serial.writeString("got")
-        return temp;
+        if (temp == "faces")
+            return true;
+        else
+            return false;
     }
 
     //% blockId=Camera_dataResponse_obj

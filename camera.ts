@@ -37,7 +37,7 @@ namespace Camera {
             let temp = serial.readLine()
 
             if (temp.charAt(0).compare("*") == 0) {
-                human_score = parseInt(temp.substr(1, temp.length - 1))
+                human_score = Math.round(parseFloat(temp.substr(1, temp.length - 1)) * 100)
             }
             else if (temp == "faces") {
                     is_human = true

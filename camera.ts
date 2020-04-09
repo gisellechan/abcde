@@ -10,8 +10,9 @@
 //% weight=100 color=#6495ED icon="\uf030"
 namespace Camera {
 
-    let is_human=false
-    let human_score=0
+    let is_human = false
+    let human_score = 0
+	let temp_obj = ""
 
     // -------------- 1. Intialize Camera ----------------
     //% blockId=initialize_camera
@@ -57,6 +58,10 @@ namespace Camera {
     //% blockGap=7
     export function ObjDetection(): void {
         serial.writeString("object")
+		serial.onDataReceived(serial.delimiters(Delimiters.NewLine), () => {
+		temp_obj = serial.readLine()
+        serial.writeString("got")
+		})
     }
 
     // -------------- 4. Start Camera mode ----------------
@@ -89,10 +94,8 @@ namespace Camera {
     //% weight=40
     //% blockGap=7
     export function DataResponse_obj(): string {
-        let temp = ""
-        temp = serial.readLine()
-        serial.writeString("got")
-        return temp;
+        
+        return temp_obj;
     }
 
     // -------------- 7. Camera Capture ----------------
